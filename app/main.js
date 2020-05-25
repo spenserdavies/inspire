@@ -3,7 +3,7 @@ import TodoController from "./controllers/todo-controller.js";
 import ImageController from "./controllers/image-controller.js";
 import QuoteController from "./controllers/quote-controller.js";
 import ClockController from "./controllers/clock-controller.js"
-// import Clock from "./models/clock.js/index.js";
+
 
 
 //TODO Dont forget to register all your controllers
@@ -14,7 +14,7 @@ class App {
     this.imageController = new ImageController();
     this.quoteController = new QuoteController();
     //this.clockController = new ClockController();
-    // this.clock = new Clock();
+
   }
 }
 
