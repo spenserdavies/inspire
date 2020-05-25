@@ -3,10 +3,10 @@ export default class Quote {
     this.body = data.quote.body
     this.author = data.quote.author
   }
-  get Template(){
-    return `
-    <ul>"${this.body}"</ul> <!--look at the w3 schools css hover options -->
-    <li>${this.author}</li>
-    `
-  }
+  // get Template(){
+  //   return `
+  //   <ul>"${this.body}"</ul> <!--look at the w3 schools css hover options -->
+  //   <li>${this.author}</li>
+  //   `
+  // }
 }
