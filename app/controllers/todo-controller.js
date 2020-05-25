@@ -13,7 +13,7 @@ function _drawTodos() {
 export default class TodoController {
   constructor() {
     //TODO Remember to register your subscribers
-    store.subscribe("todos", _drawTodos);
+    //store.subscribe("todos", _drawTodos);
     TodoService.getTodos();
   }
 

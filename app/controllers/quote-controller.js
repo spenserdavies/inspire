@@ -8,7 +8,7 @@ function _drawQuote(){
   let quote = store.State.quote.body;
   let author = store.State.quote.author;
   document.getElementById("quote").innerText = "'" + quote + "'";
-  document.getElementById("author").innerText = author;
+  //document.getElementById("author").innerText = author;
 }
 
 
