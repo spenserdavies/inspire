@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Inspire</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+
+</head>
+
+<body id="bg-image" class="bg-secondary">
+	<header class="container-fluid mr-3">
+		<div class="row text-white text-shadow">
+			<div class="col-12 text-right">
+				<div id="weather" class="mt-3 mr-3">
+
+				</div>
+			</div>
+	</header>
+
+	<main class="container-fluid mb-3">
+		<div class="row">
+			<div class="col-12 text-center m-auto text-white text-shadow">
+				<div>
+					<p id="clock">10 : 50 : 03 AM</p>
+				</div>
+			</div>
+		</div>
+	</main>
+
+
+	<div class="row">
+		<div class="offset-10 col-2 text-white bg-dark card shadow">
+			<div class="card-header text-center">TODO:</div>
+			<div class="card-body">
+				<ul>
+					<li>${task}<i class="far fa-trash-alt text-white pointer" onclick="app.todoController.removeTodo('${this.id}')"></i></li>
+				</ul>
+				<form onsubmit="app.todoController.addTodo(event)">
+					<div class="form-group d-flex">
+						<input type="text" class="bg-dark text-white form-control" name="todo" id="todo" placeholder="Add Todo" required>
+						<button type="submit" class="btn ml-2 btn-outline-success"><i class="fas fa-plus "></i></button>
+					  </div>
+				</form>
+
+			</div>
+			<div id="todo-error"></div>
+			<div id="todos"></div>
+		</div>
+	</div>
+
+	<footer class="container-fluid mb-3 text-center text-white text-shadow">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h4 id="quote">
+
+				</h4>
+			</div>
+		</div>
+	</footer>
+	<script>
+		function startTime() {
+			//NOTE aliases the date value to get hours, minutes, and seconds
+			let today = new Date();
+			let h = today.getHours();
+			let m = today.getMinutes();
+			let s = today.getSeconds();
+
+			//NOTE sets the AM/PM Value
+			let amPm = ""
+			if (h < 12) {
+				amPm = "AM"
+			} else {
+				amPm = "PM"
+			}
+			//NOTE converts to 12 hour time
+			if (h > 12) {
+				h -= 12;
+			} else {
+				h = h;
+			}
+			//NOTE pads the numbers with a zero in front of them for single digits
+			h = ("0" + h).slice(-2);
+			m = ("0" + m).slice(-2)
+			s = ("0" + s).slice(-2)
+
+			//NOTE sets the html on the page to the time values
+			document.getElementById("clock").innerHTML = h + " : " + m + " : " + s + " " + amPm
+			//NOTE repeats the function every half a second
+			let t = setTimeout(startTime, 1000);
+		}
+		startTime()
+	</script>
+	<script src="https://kit.fontawesome.com/68f8809237.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+	<script type="module" src="app/main.js"></script>
+</body>
+
+</html>
+<html>
